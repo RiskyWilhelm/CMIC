@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,9 @@ public sealed class Movable : MonoBehaviour
     [SerializeField]
     private float forceScale;
 
+    [SerializeField]
+    private Vector3 maxVelocity;
+
     #endregion
 
     #region Movable Other
@@ -29,26 +33,43 @@ public sealed class Movable : MonoBehaviour
     // Start
     private void OnEnable()
     {
-        InputUser.PerformPairingWithDevice(Keyboard.current, playerInput.user);
         playerInput.ActivateInput();
+        InputUser.PerformPairingWithDevice(Keyboard.current, playerInput.user);
     }
 
 
     // Update
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        moveAmount = context.ReadValue<Vector2>();
-    }
-
     private void FixedUpdate()
     {
         DoMove_Fixed();
+        LimitVelocity();
+    }
+
+    public void OnInputMove(InputAction.CallbackContext context)
+    {
+        moveAmount = context.ReadValue<Vector2>();
     }
 
     private void DoMove_Fixed()
     {
         var movementForce = new Vector3(moveAmount.x, 0f, moveAmount.y);
         selfRigidbody.AddForce(movementForce * forceScale);
+    }
+
+    private void LimitVelocity()
+    {
+        var newVelocity = selfRigidbody.linearVelocity;
+
+        if ((maxVelocity.x > 0f) && (Math.Abs(newVelocity.x) > maxVelocity.x))
+            newVelocity.x = maxVelocity.x * Math.Sign(newVelocity.x);
+
+        if ((maxVelocity.y > 0f) && (Math.Abs(newVelocity.y) > maxVelocity.y))
+            newVelocity.y = maxVelocity.y * Math.Sign(newVelocity.y);
+
+        if ((maxVelocity.z > 0f) && (Math.Abs(newVelocity.z) > maxVelocity.z))
+            newVelocity.z = maxVelocity.z * Math.Sign(newVelocity.z);
+
+        selfRigidbody.linearVelocity = newVelocity;
     }
 
 
