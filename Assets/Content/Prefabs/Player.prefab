@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 1806223425051172660}
   - component: {fileID: 6780221825834891997}
   - component: {fileID: 7017900901366988523}
+  - component: {fileID: 8067417797694261396}
+  - component: {fileID: 5268239534595498734}
   - component: {fileID: 7540269859054291683}
   m_Layer: 0
   m_Name: Player
@@ -176,7 +178,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8067417797694261396}
+        m_TargetAssemblyTypeName: Player, CMIC.Player.Runtime
+        m_MethodName: OnInputMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
@@ -220,6 +234,35 @@ MonoBehaviour:
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8067417797694261396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840671450598588833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9297a6428ab4e2a4ea0afc5a8789654c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementController: {fileID: 5268239534595498734}
+--- !u!114 &5268239534595498734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840671450598588833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0736e5e5297ef84dbdc31da45511c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selfRigidbody: {fileID: 6780221825834891997}
+  movementForceMode: 5
+  movementForce: {x: 150, y: 150, z: 150}
+  maxMovementVelocity: {x: 20, y: 20, z: 20}
 --- !u!114 &7540269859054291683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,10 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f3a5682237c1d42976e94e3fa6c4e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfRigidbody: {fileID: 6780221825834891997}
   playerInput: {fileID: 7017900901366988523}
-  forceScale: 150
-  maxVelocity: {x: 20, y: 20, z: 20}
 --- !u!1 &2300813438208098658
 GameObject:
   m_ObjectHideFlags: 0

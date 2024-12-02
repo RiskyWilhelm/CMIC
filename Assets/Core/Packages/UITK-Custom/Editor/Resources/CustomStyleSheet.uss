@@ -1,0 +1,44 @@
+TextField.text-field__readonly > #unity-text-input {
+    background-color: rgba(255, 255, 255, 0);
+    border-top-left-radius: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.dropdown_input-field {
+    flex-direction: row;
+    overflow: hidden;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.dropdown_input-field:hover .dropdown_input-field-dropdown__icon {
+    display: flex;
+    opacity: 0.5;
+}
+
+.dropdown_input-field-dropdown {
+    justify-content: center;
+}
+
+.dropdown_input-field-dropdown:hover .dropdown_input-field-dropdown__icon {
+    display: flex;
+    opacity: 1;
+}
+
+.dropdown_input-field-dropdown__icon {
+    display: none;
+    width: 16px;
+    height: 16px;
+    background-image: var(--unity-icons-pane_options);
+    opacity: 0;
+}
+
+.dropdown_input-field__input {
+    flex-grow: 1;
+}

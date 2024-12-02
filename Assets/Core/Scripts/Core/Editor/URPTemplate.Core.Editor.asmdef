@@ -1,0 +1,20 @@
+{
+    "name": "Pectone.Core.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:478a2357cc57436488a56e564b08d223",
+        "GUID:4e0d6067b78657c49ad30ac6dad47c75",
+        "GUID:32a8ef1d8fb2fb74a99062a48c318151"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

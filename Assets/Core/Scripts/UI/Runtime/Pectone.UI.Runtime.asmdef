@@ -1,0 +1,19 @@
+{
+    "name": "Pectone.UI.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4e0d6067b78657c49ad30ac6dad47c75"
+    ],
+    "includePlatforms": [
+        "Android",
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

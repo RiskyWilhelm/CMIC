@@ -1,0 +1,19 @@
+{
+    "name": "URPTemplate.Other.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4e0d6067b78657c49ad30ac6dad47c75",
+        "GUID:dc7620ed999d1c049bb4a8ec6e0c3dd8"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

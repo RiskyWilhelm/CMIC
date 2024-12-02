@@ -1,0 +1,19 @@
+{
+    "name": "URPTemplate.Other.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:4e0d6067b78657c49ad30ac6dad47c75"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

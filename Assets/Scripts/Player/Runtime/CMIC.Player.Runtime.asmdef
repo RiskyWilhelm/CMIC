@@ -2,7 +2,10 @@
     "name": "CMIC.Player.Runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:b9f4a2984c0ecb7478131c53c545df71",
+        "GUID:4e0d6067b78657c49ad30ac6dad47c75",
+        "GUID:ff849d8863318aa48a8825191663d58c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
