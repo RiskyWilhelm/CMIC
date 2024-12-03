@@ -19,15 +19,15 @@ public sealed partial class RigidbodySpawner : MonoBehaviour
 
 
 	// Update
+	[ContextMenu(nameof(Spawn))]
 	public void Spawn()
 	{
-		Addressables.InstantiateAsync(assetRef, this.transform).Completed += OnSpawnCompleted;
+		Addressables.InstantiateAsync(assetRef, this.transform.position, this.transform.rotation).Completed += OnSpawnCompleted;
 	}
 
 	private void OnSpawnCompleted(AsyncOperationHandle<GameObject> handle)
 	{
-		var isSucceeded = (handle.Status == AsyncOperationStatus.Succeeded);
-		if (!isSucceeded)
+		if (handle.Status is not AsyncOperationStatus.Succeeded)
 		{
 			handle.Release();
 			return;

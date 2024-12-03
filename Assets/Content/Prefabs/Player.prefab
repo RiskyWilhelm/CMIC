@@ -151,7 +151,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &7017900901366988523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +246,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9297a6428ab4e2a4ea0afc5a8789654c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _selfRigidbody: {fileID: 6780221825834891997}
+  isGroundedLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  isGroundedCheckRadius: 0.5
+  isGroundedCheckDistance: 1
   movementController: {fileID: 5268239534595498734}
 --- !u!114 &5268239534595498734
 MonoBehaviour:

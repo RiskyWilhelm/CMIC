@@ -9,9 +9,11 @@ public abstract partial class MonoBehaviourPoolBase<PooledObjectType> : MonoBeha
     private bool collectionCheck = true;
 
     [field: SerializeField]
-    public int MaxPoolSize { get; private set; } = 100;
+    public int MaxPoolSize
+	{ get; private set; } = 100;
 
-	public ObjectPool<PooledObjectType> MainPool { get; private set; }
+	public ObjectPool<PooledObjectType> MainPool
+	{ get; private set; }
 
 
 	// Initialize
@@ -47,6 +49,7 @@ public abstract partial class MonoBehaviourPoolBase<PooledObjectType> : MonoBeha
 	public PooledObjectType Get()
 		=> MainPool.Get();
 
+	// TODO: Rename method to Get()
 	public object GetUnknown()
 		=> Get();
 
@@ -81,7 +84,9 @@ public abstract partial class MonoBehaviourPoolBase<PooledObjectType> : MonoBeha
 	public void Release(PooledObjectType obj)
 		=> MainPool.Release(obj);
 
-	public void ReleaseUnknown(object obj)
+
+    // TODO: Rename method to Release()
+    public void ReleaseUnknown(object obj)
 		=> Release(obj as PooledObjectType);
 
 	public void Clear()

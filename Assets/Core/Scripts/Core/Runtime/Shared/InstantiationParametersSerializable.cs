@@ -16,7 +16,7 @@ public struct InstantiationParametersSerializable
     private Vector3 _rotation;
 
     [SerializeField]
-    private Transform parent;
+    private Transform _parent;
 
     [SerializeField]
     [JsonProperty]
@@ -41,7 +41,7 @@ public struct InstantiationParametersSerializable
     /// <summary> Transform to set as the parent of the instantiated object. </summary>
     public Transform Parent
     {
-		get => parent;
+		get => _parent;
     }
 
     /// <summary> When setting the parent Transform, this sets whether to preserve instance transform relative to world space or relative to the parent. </summary>
@@ -64,7 +64,7 @@ public struct InstantiationParametersSerializable
     {
         _position = Vector3.zero;
         _rotation = Vector3.zero;
-        this.parent = parent;
+        this._parent = parent;
         _instantiateInWorldPosition = instantiateInWorldPosition;
         _setPositionRotation = false;
     }
@@ -78,7 +78,7 @@ public struct InstantiationParametersSerializable
     {
         _position = position;
         _rotation = rotation.eulerAngles;
-        this.parent = parent;
+        this._parent = parent;
         _instantiateInWorldPosition = false;
         _setPositionRotation = true;
     }
@@ -87,7 +87,7 @@ public struct InstantiationParametersSerializable
         where T : UnityEngine.Object
 	{
 		T result;
-		if (parent == null)
+		if (_parent == null)
 		{
 			if (_setPositionRotation)
 				result = UnityEngine.Object.Instantiate(source, _position, Quaternion.Euler(_rotation));
@@ -97,9 +97,9 @@ public struct InstantiationParametersSerializable
 		else
 		{
 			if (_setPositionRotation)
-				result = UnityEngine.Object.Instantiate(source, _position, Quaternion.Euler(_rotation), parent);
+				result = UnityEngine.Object.Instantiate(source, _position, Quaternion.Euler(_rotation), _parent);
 			else
-				result = UnityEngine.Object.Instantiate(source, parent, _instantiateInWorldPosition);
+				result = UnityEngine.Object.Instantiate(source, _parent, _instantiateInWorldPosition);
 		}
 
 		return result;

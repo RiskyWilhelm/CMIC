@@ -1,7 +1,10 @@
 {
-    "name": "CMIC.Core.Runtime",
+    "name": "CMIC.Fragments.Runtime",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:4e0d6067b78657c49ad30ac6dad47c75",
+        "GUID:dc7620ed999d1c049bb4a8ec6e0c3dd8"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

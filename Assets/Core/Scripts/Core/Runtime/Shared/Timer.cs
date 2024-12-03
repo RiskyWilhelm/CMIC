@@ -24,7 +24,7 @@ public struct Timer : IEquatable<Timer>
 	}
 
 	public bool HasEnded
-		=> (_currentSecond == 0f);
+		=> (_currentSecond <= 0f);
 
 	public TimeType TickType
 	{
@@ -87,10 +87,10 @@ public struct Timer : IEquatable<Timer>
 
 	public void Randomize(float maxExclusiveSeconds)
 	{
-		_tickSecond = randomizer.NextFloat(0f, maxExclusiveSeconds);
+		_currentSecond = randomizer.NextFloat(0f, maxExclusiveSeconds);
 	}
 
-	/// <summary> Uses <see cref="_tickSecond"/> as max exclusive value </summary>
+	/// <summary> Uses <see cref="_tickSecond"/> as max exclusive seconds </summary>
 	public void Randomize()
 		=> Randomize(_tickSecond);
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public sealed partial class Player : MonoBehaviour
+public sealed partial class Player : StateMachineDrivenPlayerBase
 {
     #region Player Settings
 
@@ -28,7 +28,7 @@ public sealed partial class Player : MonoBehaviour
 
 #if UNITY_EDITOR
 
-public sealed partial class Player : MonoBehaviour
+public sealed partial class Player
 {}
 
 #endif
