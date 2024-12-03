@@ -445,7 +445,6 @@ GameObject:
   m_Component:
   - component: {fileID: 680359670}
   - component: {fileID: 680359672}
-  - component: {fileID: 680359671}
   m_Layer: 0
   m_Name: FragmentSpawner
   m_TagString: Untagged
@@ -468,27 +467,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &680359671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680359668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc7a834b4374c44d97b1ba0d29242fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  assetRef:
-    m_AssetGUID: 48d172bd140483e489ca15c3fea4b164
-    m_SubObjectName: 
-    m_SubObjectGUID: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  isPushWorldAxis: 0
-  pushForce: {x: 0, y: 0, z: 0}
-  e_IsActivatedInteractiveEditing: 0
 --- !u!114 &680359672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,7 +479,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a256940561db1784a8124a803fd1d9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbodySpawner: {fileID: 680359671}
+  fragmentReference:
+    m_AssetGUID: 48d172bd140483e489ca15c3fea4b164
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   randomnessCollider: {fileID: 384371360}
   timer:
     _tickType: 1
@@ -813,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectionCheck: 1
-  <MaxPoolSize>k__BackingField: 5
+  <MaxPoolSize>k__BackingField: 25
 --- !u!1001 &1189904237
 PrefabInstance:
   m_ObjectHideFlags: 0

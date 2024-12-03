@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public sealed partial class FragmentSpawner : MonoBehaviour
 {
     #region FragmentSpawner Settings
 
     [SerializeField]
-    private RigidbodySpawner rigidbodySpawner;
+    private AssetReference fragmentReference;
 
     [SerializeField]
     private Collider randomnessCollider;
@@ -42,9 +44,14 @@ public sealed partial class FragmentSpawner : MonoBehaviour
         }
         catch
         {
-            rigidbodySpawner.transform.position = randomnessCollider.GetRandomPoint();
-            rigidbodySpawner.Spawn();
+            Addressables.InstantiateAsync(fragmentReference, randomnessCollider.GetRandomPoint(), Quaternion.identity).Completed += OnSpawnCompleted;
         }
+    }
+
+    private void OnSpawnCompleted(AsyncOperationHandle<GameObject> handle)
+    {
+        if (handle.Status is not AsyncOperationStatus.Succeeded)
+            handle.Release();
     }
 
 
