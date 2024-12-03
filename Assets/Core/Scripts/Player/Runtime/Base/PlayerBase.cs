@@ -27,7 +27,7 @@ public abstract partial class PlayerBase : MonoBehaviour
 	[Header("PlayerBase Grounded/UnGrounded")]
 	#region PlayerBase Grounded/UnGrounded
 
-	public LayerMask isGroundedLayerMask = Layers.Mask.Ground;
+	public LayerMask isGroundedLayerMask;
 
 	public float isGroundedCheckRadius = 1f;
 
@@ -70,7 +70,7 @@ public abstract partial class PlayerBase : MonoBehaviour
 		}
 	}
 
-	public bool IsGroundedAtVector(Vector3 worldPosition, out RaycastHit hit, int layerMask = Layers.Mask.Ground)
+	public bool IsGroundedAtVector(Vector3 worldPosition, out RaycastHit hit, int layerMask)
 	{
 		return Physics.SphereCast(worldPosition, isGroundedCheckRadius, _selfRigidbody.rotation.Down(), out hit, isGroundedCheckDistance, layerMask);
 	}

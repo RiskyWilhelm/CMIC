@@ -25,12 +25,26 @@ public sealed partial class FragmentSpawner : MonoBehaviour
     {
         if (timer.HasEnded)
         {
-            rigidbodySpawner.transform.position = randomnessCollider.GetRandomPoint();
-            rigidbodySpawner.Spawn();
+            GetOrSpawn();
             timer.Randomize();
         }
         else
             timer.Tick();
+    }
+
+    private void GetOrSpawn()
+    {
+        try
+        {
+            var fragment = FragmentPoolSingleton.Instance.Get();
+            fragment.transform.position = randomnessCollider.GetRandomPoint();
+            fragment.gameObject.SetActive(true);
+        }
+        catch
+        {
+            rigidbodySpawner.transform.position = randomnessCollider.GetRandomPoint();
+            rigidbodySpawner.Spawn();
+        }
     }
 
 

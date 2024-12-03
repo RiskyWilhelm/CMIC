@@ -58,7 +58,7 @@ public sealed partial class RigidbodySpawner : MonoBehaviour
 
 public sealed partial class RigidbodySpawner
 {
-	[Header("GravitionalPull Edit")]
+	[Header("RigidbodySpawner Edit")]
 	[RenameLabelTo("Interactive Editing")]
 	public bool e_IsActivatedInteractiveEditing;
 }

@@ -184,7 +184,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 50, y: 1, z: 50}
+  m_Size: {x: 90, y: 1, z: 90}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
@@ -444,8 +444,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 680359670}
-  - component: {fileID: 680359671}
   - component: {fileID: 680359672}
+  - component: {fileID: 680359671}
   m_Layer: 0
   m_Name: FragmentSpawner
   m_TagString: Untagged
@@ -777,6 +777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1147827732}
+  - component: {fileID: 1147827733}
   m_Layer: 0
   m_Name: FragmentPoolSingleton
   m_TagString: Untagged
@@ -799,6 +800,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1147827733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147827730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a51b1d53f2c73d4db6c624ce15c4d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectionCheck: 1
+  <MaxPoolSize>k__BackingField: 5
 --- !u!1001 &1189904237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -908,6 +923,7 @@ GameObject:
   - component: {fileID: 1274603218}
   - component: {fileID: 1274603217}
   - component: {fileID: 1274603216}
+  - component: {fileID: 1274603220}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -1004,6 +1020,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1274603220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274603215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0638aa92b409c2448c99b5f91858228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1406288209
 MonoBehaviour:
   m_ObjectHideFlags: 0

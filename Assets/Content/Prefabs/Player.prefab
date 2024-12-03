@@ -181,7 +181,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8067417797694261396}
         m_TargetAssemblyTypeName: Player, CMIC.Player.Runtime
-        m_MethodName: OnInputMove
+        m_MethodName: OnInputMove_Event
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

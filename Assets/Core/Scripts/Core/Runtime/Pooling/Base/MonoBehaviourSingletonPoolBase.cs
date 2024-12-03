@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public abstract partial class MonoBehaviourSingletonPoolBase<SingletonType, PooledObjectType> : MonoBehaviourSingletonBase<SingletonType>, IPool<PooledObjectType>
-    where SingletonType : MonoBehaviourSingletonPoolBase<SingletonType, PooledObjectType>
+public abstract partial class MonoBehaviourPoolSingletonBase<SingletonType, PooledObjectType> : MonoBehaviourSingletonBase<SingletonType>, IPool<PooledObjectType>
+    where SingletonType : MonoBehaviourPoolSingletonBase<SingletonType, PooledObjectType>
     where PooledObjectType : class
 {
     [SerializeField]
@@ -10,9 +10,11 @@ public abstract partial class MonoBehaviourSingletonPoolBase<SingletonType, Pool
     private bool collectionCheck = true;
 
 	[field: SerializeField]
-	public int MaxPoolSize { get; private set; } = 100;
+	public int MaxPoolSize
+	{ get; private set; } = 100;
 
-	public ObjectPool<PooledObjectType> MainPool { get; private set; }
+	public ObjectPool<PooledObjectType> MainPool
+	{ get; private set; }
 
 
 	// Initialize
@@ -52,33 +54,8 @@ public abstract partial class MonoBehaviourSingletonPoolBase<SingletonType, Pool
 	public object GetUnknown()
 		=> Get();
 
-	public PooledObjectType Get(Vector3 worldPosition)
-	{
-		var pooledObject = MainPool.Get();
-
-		if (pooledObject is MonoBehaviour pooledMonoBehaviour)
-			pooledMonoBehaviour.transform.position = worldPosition;
-		else
-			Debug.LogErrorFormat("{0} is not a type of MonoBehaviour. Returned normal pooled object", typeof(PooledObjectType));
-
-		return pooledObject;
-	}
-
 	public PooledObject<PooledObjectType> Get(out PooledObjectType pooledObject)
 		=> MainPool.Get(out pooledObject);
-
-	public PooledObject<PooledObjectType> Get(Vector3 worldPosition, out PooledObjectType pooledObject)
-	{
-		var disposablePooledObject = MainPool.Get(out PooledObjectType takenPooledObject);
-		pooledObject = takenPooledObject;
-
-		if (takenPooledObject is MonoBehaviour pooledMonoBehaviour)
-			pooledMonoBehaviour.transform.position = worldPosition;
-		else
-			Debug.LogErrorFormat("{0} is not a type of MonoBehaviour. Returned normal pooled object", typeof(PooledObjectType));
-
-		return disposablePooledObject;
-	}
 
 	public void Release(PooledObjectType obj)
 		=> MainPool.Release(obj);
@@ -112,7 +89,7 @@ public abstract partial class MonoBehaviourSingletonPoolBase<SingletonType, Pool
 
 #if UNITY_EDITOR
 
-public abstract partial class MonoBehaviourSingletonPoolBase<SingletonType, PooledObjectType>
+public abstract partial class MonoBehaviourPoolSingletonBase<SingletonType, PooledObjectType>
 { }
 
 #endif
