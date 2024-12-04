@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1806223425051172660}
   - component: {fileID: 6780221825834891997}
+  - component: {fileID: 9011442142170114406}
   - component: {fileID: 7017900901366988523}
   - component: {fileID: 7540269859054291683}
   - component: {fileID: 8067417797694261396}
@@ -153,7 +154,21 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 80
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
+--- !u!114 &9011442142170114406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840671450598588833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b053377078137846b58a7daae20af91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfRigidbody: {fileID: 6780221825834891997}
+  preventGhostCollisionType: 1
 --- !u!114 &7017900901366988523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,7 +567,7 @@ Transform:
   m_GameObject: {fileID: 3356066256473874160}
   serializedVersion: 2
   m_LocalRotation: {x: 0.52573115, y: -5.4069485e-16, z: -3.518861e-16, w: 0.8506508}
-  m_LocalPosition: {x: 0, y: 15, z: -7.5}
+  m_LocalPosition: {x: 0, y: 25, z: -12.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
