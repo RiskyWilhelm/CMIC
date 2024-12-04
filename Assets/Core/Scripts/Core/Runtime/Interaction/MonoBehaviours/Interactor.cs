@@ -1,23 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Pool;
 
 [DisallowMultipleComponent]
 public sealed partial class Interactor : MonoBehaviour
 {
-	[Header("Interactor Interaction")]
+	[Header("Interactor Settings")]
 	#region Interactor Interaction
 
-	[SerializeField]
-	private InteractorType _type;
+	[Tooltip("Used for the root point in calculating the range of interaction")]
+	public Transform behaviourPointTransform;
 
-	[SerializeField]
-	private bool _isAbleToInteract;
+	public InteractionBehaviourType behaviourType;
 
-	public InteractorType Type
-		=> _type;
-
-	public bool IsAbleToInteract
-		=> _isAbleToInteract;
+	public bool isAbleToInteract = true;
 
 
 	#endregion
@@ -28,18 +25,56 @@ public sealed partial class Interactor : MonoBehaviour
 	public UnityEvent<Interactable> onInteracted = new();
 
 
-	#endregion
+    #endregion
+
+    #region Interactor Others
+
+	private HashSet<Interactable> detectedInteractablesSet = new();
 
 
-	// Initialize
-	private void OnEnable()
+    #endregion
+
+
+    // Initialize
+    private void OnEnable()
 	{
-		Unlock();
-	}
+		isAbleToInteract = true;
+    }
 
 
-	// Update
-	public bool TryInteractWith(Interactable requester)
+    // Update
+    private void Update()
+    {
+		DoShowUI();
+    }
+
+	private void DoShowUI()
+	{
+		// TODO: Show UI by behaviour type
+    }
+
+	public bool TrySelectNearestInteractable(out Interactable nearestInteractable)
+	{
+		// Take transforms of only the interactable ones
+		var cachedDict = DictionaryPool<Transform, Interactable>.Get();
+
+        foreach (var iteratedInteractable in detectedInteractablesSet)
+        {
+			if (!this.IsAbleToInteractWith(iteratedInteractable))
+				continue;
+
+			cachedDict[iteratedInteractable.transform] = iteratedInteractable;
+        }
+
+        // Select nearest and return
+        var isFoundNearest = behaviourPointTransform.TryGetNearestTransform(cachedDict.Keys.GetEnumerator(), out Transform nearestTransform);
+		nearestInteractable = (isFoundNearest) ? cachedDict[nearestTransform] : null;
+
+        DictionaryPool<Transform, Interactable>.Release(cachedDict);
+        return isFoundNearest;
+    }
+
+    public bool TryInteractOnceWith(Interactable requester)
 	{
 		if (IsAbleToInteractWith(requester))
 		{
@@ -53,24 +88,26 @@ public sealed partial class Interactor : MonoBehaviour
 
 	public bool IsAbleToInteractWith(Interactable requester)
 	{
-		return _isAbleToInteract && requester.IsAbleToGetInteracted;
+		return (isAbleToInteract && this.isActiveAndEnabled) && (requester.isAbleToGetInteracted && requester.isActiveAndEnabled);
 	}
 
-	public void Lock()
+	public void OnInteractableEnter_Event(Collider collider)
 	{
-		_isAbleToInteract = false;
+		if (EventReflector.TryGetComponentInReflected<Interactable>(collider.gameObject, out Interactable found))
+			detectedInteractablesSet.Add(found);
 	}
 
-	public void Unlock()
-	{
-		_isAbleToInteract = true;
-	}
+    public void OnInteractableExit_Event(Collider collider)
+    {
+        if (EventReflector.TryGetComponentInReflected<Interactable>(collider.gameObject, out Interactable found))
+            detectedInteractablesSet.Remove(found);
+    }
 
 
-	// Dispose
-	private void OnDisable()
+    // Dispose
+    private void OnDisable()
 	{
-		Lock();
+		isAbleToInteract = false;
 	}
 }
 

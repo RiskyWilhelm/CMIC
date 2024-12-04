@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-/// <summary> Allows other collider's and attached rigidbody's <see cref="ICollisionExitListener"/> and <see cref="ITriggerExitDisabledListener"/>(s) to receive <see cref="ICollisionExitListener.OnCollisionExit(Collision)"/> and <see cref="ITriggerExitDisabledListener"/> events </summary>
+/// <summary> Allows other collider's and their attached rigidbody's <see cref="ICollisionExitListener"/> and <see cref="ITriggerExitDisabledListener"/>(s) to receive <see cref="ICollisionExitListener.OnCollisionExit(Collision)"/> and <see cref="ITriggerExitDisabledListener.OnTriggerExitDisabled(UnityEngine.Collider)"/> events </summary>
 [DisallowMultipleComponent]
 public sealed partial class DisabledColliderNotifier : MonoBehaviour, ICollisionListener
 {

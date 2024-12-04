@@ -339,11 +339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.5
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -355,11 +355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -5.4069485e-16
+      value: -0.000000028183573
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -3.518861e-16
+      value: 0.000000017418408
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 805116483}
   - component: {fileID: 805116482}
   m_Layer: 0
-  m_Name: MapBounds
+  m_Name: MapBoundaryColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -849,6 +849,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_2
       objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8506508
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.52573115
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000000028183576
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000017418412
+      objectReference: {fileID: 0}
     - target: {fileID: 4920771166659177065, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
       propertyPath: OutputChannel
       value: 4
@@ -888,6 +912,10 @@ PrefabInstance:
     - target: {fileID: 7017900901366988523, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_ActionName
       value: 'Player/Sprint[/Keyboard/leftShift]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067417797694261396, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: _playerType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1228,6 +1256,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_1
       objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.85065085
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.52573115
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000000027753737
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099949238980791737, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000017152708
+      objectReference: {fileID: 0}
     - target: {fileID: 4920771166659177065, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
       propertyPath: OutputChannel
       value: 2
@@ -1272,6 +1324,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[2].m_ActionName
       value: 'Player/Sprint[/Keyboard/leftShift]'
       objectReference: {fileID: 0}
+    - target: {fileID: 8067417797694261396, guid: b1e032150c3585041a1cc77932e1388b, type: 3}
+      propertyPath: _playerType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1295,11 +1351,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.5
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1311,11 +1367,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -5.4069485e-16
+      value: -0.000000027753785
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -3.518861e-16
+      value: 0.000000017152786
       objectReference: {fileID: 0}
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1328,6 +1384,10 @@ PrefabInstance:
     - target: {fileID: 5224982922546423371, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485023856226693203, guid: 161d71600522e8d46bdee101926586b1, type: 3}
+      propertyPath: field of view
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7485023856226693203, guid: 161d71600522e8d46bdee101926586b1, type: 3}
       propertyPath: m_NormalizedViewPortRect.width

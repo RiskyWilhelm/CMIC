@@ -7,17 +7,7 @@ public sealed partial class Interactable : MonoBehaviour
 	[Header("Interactable Interaction")]
 	#region Interactable Interaction
 
-	[SerializeField]
-	private InteractableType _type;
-
-	[SerializeField]
-	private bool _isAbleToGetInteracted;
-
-	public InteractableType Type
-		=> _type;
-
-	public bool IsAbleToGetInteracted
-		=> _isAbleToGetInteracted;
+	public bool isAbleToGetInteracted = true;
 
 
 	#endregion
@@ -34,32 +24,22 @@ public sealed partial class Interactable : MonoBehaviour
 	// Initialize
 	private void OnEnable()
 	{
-		Unlock();
+		isAbleToGetInteracted = true;
 	}
 
 
 	// Update
 	public bool TryGetInteractedBy(Interactor requester)
-		=> requester.TryInteractWith(this);
+		=> requester.TryInteractOnceWith(this);
 
 	public bool IsAbleToGetInteractedBy(Interactor requester)
 		=> requester.IsAbleToInteractWith(this);
-
-	public void Lock()
-	{
-		_isAbleToGetInteracted = false;
-	}
-
-	public void Unlock()
-	{
-		_isAbleToGetInteracted = true;
-	}
 
 
 	// Dispose
 	private void OnDisable()
 	{
-		Lock();
+		isAbleToGetInteracted = false;
 	}
 }
 
